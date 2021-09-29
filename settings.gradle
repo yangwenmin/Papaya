@@ -1,1 +1,1 @@
-include ':app'
+include ':app', ':kylin_annotations', ':kylin_compiler', ':kylin_core', ':kylin_ec'

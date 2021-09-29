@@ -1,4 +1,4 @@
-package com.papaya;
+package com.kylin.core;
 
 import android.content.Context;
 import androidx.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.papaya", appContext.getPackageName());
+        assertEquals("com.kylin.core.test", appContext.getPackageName());
     }
 }
