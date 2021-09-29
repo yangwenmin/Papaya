@@ -2,6 +2,8 @@ package com.papaya.application;
 
 import android.content.Context;
 
+
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -39,6 +41,7 @@ public class MyApplication extends MultiDexApplication {
 
         MyApplication.context = getApplicationContext();
         sApplication = this;
+
 
 
         // 崩溃收集

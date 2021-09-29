@@ -26,7 +26,6 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':kylin_core')
-
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':kylincore')
 }
