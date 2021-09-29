@@ -9,10 +9,22 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/main_btn_gsy"
+        android:id="@+id/video_btn_next"
         android:layout_width="match_parent"
         android:layout_height="54dp"
         android:layout_margin="10dp"
-        android:text="播放测试演示"/>
+        android:text="自定义播放"/>
+    <Button
+        android:id="@+id/video_btn_land"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_margin="10dp"
+        android:text="横屏播放"/>
+    <Button
+        android:id="@+id/video_btn_simple"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:layout_margin="10dp"
+        android:text="simple"/>
 
 </LinearLayout>

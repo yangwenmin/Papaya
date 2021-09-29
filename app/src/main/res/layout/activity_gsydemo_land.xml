@@ -8,11 +8,13 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/main_btn_gsy"
+
+    <com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer
+        android:id="@+id/land_player"
         android:layout_width="match_parent"
-        android:layout_height="54dp"
-        android:layout_margin="10dp"
-        android:text="播放测试演示"/>
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"/>
+
+
 
 </LinearLayout>

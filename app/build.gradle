@@ -53,8 +53,12 @@ dependencies {
     // implementation 'cn.jzvd:jiaozivideoplayer:7.7.0'
 
 
-    //完整版引入
+    // GSYVideoPlayer 完整版引入
     implementation 'com.github.CarGuo.GSYVideoPlayer:GSYVideoPlayer:v8.1.6-jitpack'
 
+
+    // glide
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    implementation 'com.github.bumptech.glide:okhttp3-integration:4.12.0'
 
 }

@@ -1,0 +1,7 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+
+    <!--gsy视频高度-->
+    <dimen name="post_media_height">200dp</dimen>
+
+</resources>

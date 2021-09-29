@@ -42,7 +42,7 @@ public class MyApplication extends MultiDexApplication {
 
 
         // 崩溃收集
-        // CrashHandler.getInstance().init(this);
+        CrashHandler.getInstance().init(this);
 
 
         // Android P（Android 9）出现Detected problems with API compatibility问题解决
