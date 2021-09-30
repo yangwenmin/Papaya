@@ -39,15 +39,106 @@ dependencies {
     // GSYVideoPlayer 完整版引入
     api 'com.github.CarGuo.GSYVideoPlayer:GSYVideoPlayer:v8.1.6-jitpack'
 
-    // glide
-    api 'com.github.bumptech.glide:glide:4.12.0'
-    api 'com.github.bumptech.glide:okhttp3-integration:4.12.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
-
     // 字体图标
     api 'com.joanzapata.iconify:android-iconify-fontawesome:2.2.2'
     api 'com.joanzapata.iconify:android-iconify-ionicons:2.2.2'
 
 
+    // 数据库  http://ormlite.com
+    api 'com.j256.ormlite:ormlite-android:5.0'
+    api 'com.j256.ormlite:ormlite-core:5.0'
+
+    /*// Fragmentation  https://github.com/YoKeyword/Fragmentation
+    api 'me.yokeyword:fragmentation:1.3.6'
+    api 'me.yokeyword:fragmentation-swipeback:1.3.6'
+    api 'me.yokeyword:eventbus-activity-scope:1.1.0'
+    api 'org.greenrobot:eventbus:3.0.0'*/
+
+    // Fragmentation  https://github.com/YoKeyword/Fragmentation
+    api 'me.yokeyword:fragmentationx:1.0.2'
+    api 'me.yokeyword:fragmentationx-swipeback:1.0.2'
+    api 'me.yokeyword:eventbus-activity-scope:1.1.0'
+    api 'org.greenrobot:eventbus:3.2.0'
+
+    // loader依赖
+    api 'com.wang.avi:library:2.1.3'
+
+    // JSON解析依赖 Android版
+    // compile 'com.alibaba:fastjson:1.1.57.android'
+    // api 'com.alibaba:fastjson:1.1.71.android'
+    api 'com.alibaba:fastjson:1.1.72.android'
+
+    // 拼音处理
+    api 'com.github.SilenceDut:jpinyin:v1.0'
+
+    // java类补充库(适配6.0)
+    api files('libs/commons-lang-2.6.jar')
+    api files('libs/org.apache.http.legacy.jar')
+    api files('libs/sun.misc.BASE64Decoder.jar')
+    // 压缩zip帮助
+    api files('libs/ant.jar')
+    // 图片处理
+    api files('libs/universal-image-loader-1.9.5.jar')
+
+    // 日志
+    // api 'com.orhanobut:logger:2.1.1'
+    api 'com.orhanobut:logger:2.2.0'
+
+    //Banner依赖
+    // api 'com.bigkoo:convenientbanner:2.0.5'
+    api 'com.bigkoo:convenientbanner:2.1.5'//地址变小写了，额。。。
+    api 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar'
+
+
+
+    //网络请求依赖
+    api 'com.squareup.okhttp3:okhttp:3.8.0'
+    // api 'com.squareup.retrofit2:converter-scalars:2.3.0'
+    // api 'com.squareup.retrofit2:retrofit:2.3.0'
+    api 'com.squareup.okio:okio:1.13.0'
+
+    // api 'com.squareup.okhttp3:okhttp:4.9.1'
+    api 'com.squareup.retrofit2:retrofit:2.9.0'
+    api 'com.squareup.retrofit2:converter-scalars:2.9.0'
+    // api 'com.squareup.okio:okio:1.13.0'
+
+    // glide
+    api 'com.github.bumptech.glide:glide:4.12.0'
+    api 'com.github.bumptech.glide:okhttp3-integration:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+
+
+    // ListView 拖动排序
+    api 'com.yydcdut:sdlv:0.7.6'
+
+
+    //工具包 https://github.com/Blankj/AndroidUtilCode
+    // api 'com.blankj:utilcode:1.10.0'
+    api 'com.blankj:utilcode:1.30.0'
+
+    // 图片拉伸展示 https://github.com/Baseflow/PhotoView
+    api 'com.github.chrisbanes:PhotoView:2.0.0'
+
+    // 动态次渠道加载 https://github.com/nex3z/FlowLayout
+    // api 'com.nex3z:flow-layout:1.2.2'
+    api 'com.nex3z:flow-layout:1.3.3'
+
+    // 上拉加载下拉舒心
+    api 'in.srain.cube:ultra-ptr:1.0.11'
+
+    // 录音
+    api 'com.google.code.gson:gson:2.8.5'
+    api 'com.czt.mp3recorder:library:1.0.3'
+
+    // 简化Android 6.0 系统复杂的权限操作 https://github.com/mylhyl/AndroidAcp
+    // api 'com.mylhyl:acp:1.1.5'
+    api 'com.mylhyl:acp:1.2.0'
+
+    // 圆形图片 https://github.com/hdodenhof/CircleImageView
+    // api 'de.hdodenhof:circleimageview:2.2.0'
+    api 'de.hdodenhof:circleimageview:3.1.0'
+
+    // 悬浮按钮
+    api 'com.nightonke:boommenu:2.1.1'
 
 }
