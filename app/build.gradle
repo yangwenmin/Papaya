@@ -16,6 +16,7 @@ android {
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -23,29 +24,42 @@ android {
         }
     }
 
-
     dexOptions {
         javaMaxHeapSize "4g"
     }
 
-
+    //指定jdk版本
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    // 如果提示多个重复文件，加这属性
+    packagingOptions {
+        exclude 'META-INF/proguard/androidx-annotations.pro'
+    }
+
 }
 
+
+/*
+// 用于指定所有aar引用同样版本的support包
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion '28.0.0'
+            }
+        }
+    }
+}*/
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation project(':kylinec')
 
-    implementation 'androidx.multidex:multidex:2.0.1'
-    // GSYVideoPlayer 完整版引入
-    implementation 'com.github.CarGuo.GSYVideoPlayer:GSYVideoPlayer:v8.1.6-jitpack'
+    api project(':kylinec')
+    api project(':kylincompiler')
 
-    // glide
-    implementation 'com.github.bumptech.glide:glide:4.12.0'
-    implementation 'com.github.bumptech.glide:okhttp3-integration:4.12.0'
-    // annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
 }
+

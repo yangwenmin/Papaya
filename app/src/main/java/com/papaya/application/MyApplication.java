@@ -3,6 +3,8 @@ package com.papaya.application;
 import android.content.Context;
 
 
+import com.joanzapata.iconify.fonts.FontAwesomeModule;
+import com.kylin.core.app.Kylin;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -42,6 +44,23 @@ public class MyApplication extends MultiDexApplication {
         MyApplication.context = getApplicationContext();
         sApplication = this;
 
+
+        // 通过全局配置器,配置参数
+        Kylin.init(this)// 配置ApplicationContext,全局handler
+                .withIcon(new FontAwesomeModule())// 配置字体图标
+                // .withIcon(new FontEcModule())// 配置另一种字体图标
+                // .withApiHost(HttpBaiDu.API_HOST)// 配置ApiHost
+                // .withInterceptor(new DebugInterceptor("test", R.raw.test))// 拦截url请求中包含test的url请求
+                // .withInterceptor(new AddCookiesInterceptor("test", R.raw.test))// 拦截url请求中包含test的url请求
+                .withJavascriptInterface("latte")
+                // .withWebEvent("back", new BackEvent())// 点击H5页面上的返回按钮  直接返回  业代运营管理堆头协议店申请
+                // .withWebEvent("share", new ShareEvent()) // 点击H5上分享按钮  分享到微信
+                // .withWebEvent("confirmback", new ConfirmBackEvent())//点击H5页面上的确定按钮 销毁h5页面 督导日工作记录详情  业代打招呼查看堆头协议
+                // .withWebEvent("getAppLocation", new LocationEvent())// 点击H5页面上的按钮,获取app地址,传给H5接收
+                // .withWebEvent("zhejiangback", new ZhejiangBackEvent())// 点击H5页面上的提交按钮     浙江需求 需要删除本地文件
+                //添加Cookie同步拦截器
+                .withWebHost("https://www.baidu.com/")
+                .configure();// 修改→配置完成的标记true
 
 
         // 崩溃收集
