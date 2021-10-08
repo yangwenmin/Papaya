@@ -25,7 +25,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    api project(':kylinannotations')
+    api project(':kylin_annotations')
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test:runner:1.3.0-alpha02'
@@ -42,7 +42,6 @@ dependencies {
     // 字体图标
     api 'com.joanzapata.iconify:android-iconify-fontawesome:2.2.2'
     api 'com.joanzapata.iconify:android-iconify-ionicons:2.2.2'
-
 
     // 数据库  http://ormlite.com
     api 'com.j256.ormlite:ormlite-android:5.0'
@@ -75,8 +74,10 @@ dependencies {
     api files('libs/commons-lang-2.6.jar')
     api files('libs/org.apache.http.legacy.jar')
     api files('libs/sun.misc.BASE64Decoder.jar')
+
     // 压缩zip帮助
     api files('libs/ant.jar')
+
     // 图片处理
     api files('libs/universal-image-loader-1.9.5.jar')
 
@@ -89,28 +90,21 @@ dependencies {
     api 'com.bigkoo:convenientbanner:2.1.5'//地址变小写了，额。。。
     api 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar'
 
-
-
-    //网络请求依赖
+    //网络请求依赖  https://github.com/square/okhttp
     api 'com.squareup.okhttp3:okhttp:3.8.0'
     // api 'com.squareup.retrofit2:converter-scalars:2.3.0'
+    api 'com.squareup.retrofit2:converter-scalars:2.9.0'
     // api 'com.squareup.retrofit2:retrofit:2.3.0'
+    api 'com.squareup.retrofit2:retrofit:2.9.0'
     api 'com.squareup.okio:okio:1.13.0'
 
-    // api 'com.squareup.okhttp3:okhttp:4.9.1'
-    api 'com.squareup.retrofit2:retrofit:2.9.0'
-    api 'com.squareup.retrofit2:converter-scalars:2.9.0'
-    // api 'com.squareup.okio:okio:1.13.0'
-
-    // glide
+    // glide https://github.com/bumptech/glide
     api 'com.github.bumptech.glide:glide:4.12.0'
     api 'com.github.bumptech.glide:okhttp3-integration:4.12.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
 
-
-    // ListView 拖动排序
+    // ListView 拖动排序 https://github.com/yydcdut/SlideAndDragListView
     api 'com.yydcdut:sdlv:0.7.6'
-
 
     //工具包 https://github.com/Blankj/AndroidUtilCode
     // api 'com.blankj:utilcode:1.10.0'
@@ -123,7 +117,7 @@ dependencies {
     // api 'com.nex3z:flow-layout:1.2.2'
     api 'com.nex3z:flow-layout:1.3.3'
 
-    // 上拉加载下拉舒心
+    // 上拉加载下拉舒心 https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh
     api 'in.srain.cube:ultra-ptr:1.0.11'
 
     // 录音
@@ -138,7 +132,16 @@ dependencies {
     // api 'de.hdodenhof:circleimageview:2.2.0'
     api 'de.hdodenhof:circleimageview:3.1.0'
 
-    // 悬浮按钮
+    // 悬浮按钮 https://github.com/Nightonke/BoomMenu
     api 'com.nightonke:boommenu:2.1.1'
+
+    // 强大而灵活的RecyclerView Adapter  https://github.com/CymChad/BaseRecyclerViewAdapterHelper
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4'
+
+    // 通知栏渐变 https://github.com/niorgai/StatusBarCompat
+    api('com.github.niorgai:StatusBarCompat:2.3.3', {
+        exclude group: 'androidx.appcompat:appcompat'
+        exclude group: 'com.google.android.material:material'
+    })
 
 }
