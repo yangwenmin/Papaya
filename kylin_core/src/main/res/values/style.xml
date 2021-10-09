@@ -32,4 +32,17 @@
         <item name="android:windowExitAnimation">@anim/push_bottom_out</item>
     </style>
 
+
+    <!--APP主题-->
+    <style name="AppThemeCom" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">@drawable/bg_splash_diaochan</item>
+    </style>
+
 </resources>

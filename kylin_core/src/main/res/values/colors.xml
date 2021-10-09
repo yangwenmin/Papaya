@@ -1,5 +1,6 @@
 <resources>
 
+
     <color name="colorPrimary">#000000</color>
     <color name="colorPrimaryDark">#1DB974</color>
     <!--按钮-->
@@ -112,6 +113,7 @@
     <!-- wt 纯白色 -->
     <color name="prompt_wt">#FFFFFF</color>
     <color name="white">#FFFFFF</color>
+
     <!-- bk 纯黑色 -->
     <color name="prompt_bk">#000000</color>
     <color name="mine_light_black">#555555</color>
