@@ -6,8 +6,8 @@ import android.database.Observable;
 
 import com.kylin.core.net.HttpMethod;
 import com.kylin.core.net.RestCreator;
-import com.kylin.core.ui.loader.LatteLoader;
-import com.kylin.core.ui.loader.LoaderStyle;
+import com.kylin.core.loader.LatteLoader;
+import com.kylin.core.loader.LoaderStyle;
 
 import java.io.File;
 import java.util.WeakHashMap;

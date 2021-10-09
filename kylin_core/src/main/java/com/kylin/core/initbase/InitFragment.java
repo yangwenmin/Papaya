@@ -2,14 +2,9 @@ package com.kylin.core.initbase;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
-
-import com.kylin.core.R;
-
 import androidx.annotation.Nullable;
-import androidx.appcompat.widget.Toolbar;
 import me.yokeyword.fragmentation.anim.DefaultNoAnimator;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
 

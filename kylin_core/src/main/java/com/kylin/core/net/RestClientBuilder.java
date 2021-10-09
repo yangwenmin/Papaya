@@ -8,10 +8,9 @@ import com.kylin.core.net.callback.IFailure;
 import com.kylin.core.net.callback.IRequest;
 import com.kylin.core.net.callback.ISuccess;
 import com.kylin.core.net.callback.OnDownLoadProgress;
-import com.kylin.core.ui.loader.LoaderStyle;
+import com.kylin.core.loader.LoaderStyle;
 
 import java.io.File;
-import java.util.Map;
 import java.util.WeakHashMap;
 
 import okhttp3.MediaType;

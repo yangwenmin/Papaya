@@ -13,7 +13,6 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
@@ -25,52 +24,58 @@
             </intent-filter>
         </activity>
 
-        <!--MainActivity-->
+        <!--TestActivity-->
 
         <activity
-            android:name=".gsydemo.GsyDemoActivity"
+            android:name=".test.gsydemo.GsyDemoActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".gsydemo.PlayerActivity"
+            android:name=".test.gsydemo.PlayerActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".gsydemo.LandActivity"
+            android:name=".test.gsydemo.LandActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="landscape"/>
 
         <activity
-            android:name=".gsydemo.simple.SimplePlayer"
+            android:name=".test.gsydemo.simple.SimplePlayer"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="landscape"
             android:theme="@style/Theme.AppCompat.Full"/>
         <activity
-            android:name=".gsydemo.simple.SimpleDetailActivityMode1"
+            android:name=".test.gsydemo.simple.SimpleDetailActivityMode1"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".gsydemo.simple.SimpleDetailActivityMode2"
+            android:name=".test.gsydemo.simple.SimpleDetailActivityMode2"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="landscape"/>
         <activity
-            android:name=".gsydemo.simple.SimpleListVideoActivityMode1"
+            android:name=".test.gsydemo.simple.SimpleListVideoActivityMode1"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Translucent"/>
         <activity
-            android:name=".gsydemo.simple.SimpleListVideoActivityMode2"
+            android:name=".test.gsydemo.simple.SimpleListVideoActivityMode2"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.Translucent"/>
         <activity
-            android:name=".gsydemo.simple.SimpleActivity"
+            android:name=".test.gsydemo.simple.SimpleActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+            android:screenOrientation="portrait"/>
+
+        <!--测试总界面-->
+        <activity
+            android:name=".test.TestActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait"/>
 
         <!--测试第4节-->
         <activity
-            android:name=".demo4.Demo4Activity"
+            android:name=".test.demo4.Demo4Activity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
             android:screenOrientation="portrait"/>
 

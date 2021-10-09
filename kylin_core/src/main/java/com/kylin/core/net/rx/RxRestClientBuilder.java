@@ -3,7 +3,7 @@ package com.kylin.core.net.rx;
 import android.content.Context;
 
 
-import com.kylin.core.ui.loader.LoaderStyle;
+import com.kylin.core.loader.LoaderStyle;
 
 import java.io.File;
 import java.util.WeakHashMap;

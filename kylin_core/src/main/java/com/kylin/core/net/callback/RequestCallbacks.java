@@ -3,10 +3,9 @@ package com.kylin.core.net.callback;
 import android.os.Handler;
 
 
-import com.kylin.core.app.ConfigKeys;
 import com.kylin.core.app.Latte;
-import com.kylin.core.ui.loader.LatteLoader;
-import com.kylin.core.ui.loader.LoaderStyle;
+import com.kylin.core.loader.LatteLoader;
+import com.kylin.core.loader.LoaderStyle;
 
 import androidx.annotation.NonNull;
 import retrofit2.Call;

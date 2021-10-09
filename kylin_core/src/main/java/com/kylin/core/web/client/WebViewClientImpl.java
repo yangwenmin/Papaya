@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 import com.kylin.core.app.ConfigKeys;
 import com.kylin.core.app.Latte;
-import com.kylin.core.ui.loader.LatteLoader;
+import com.kylin.core.loader.LatteLoader;
 import com.kylin.core.utils.dbtutil.DateUtil;
 import com.kylin.core.utils.log.LatteLogger;
 import com.kylin.core.utils.storage.LattePreference;

@@ -10,8 +10,8 @@ import com.kylin.core.net.callback.ISuccess;
 import com.kylin.core.net.callback.OnDownLoadProgress;
 import com.kylin.core.net.callback.RequestCallbacks;
 import com.kylin.core.net.download.DownloadHandler;
-import com.kylin.core.ui.loader.LatteLoader;
-import com.kylin.core.ui.loader.LoaderStyle;
+import com.kylin.core.loader.LatteLoader;
+import com.kylin.core.loader.LoaderStyle;
 
 import java.io.File;
 import java.util.ArrayList;
