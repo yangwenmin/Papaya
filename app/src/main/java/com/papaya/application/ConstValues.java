@@ -1,11 +1,12 @@
 package com.papaya.application;
 
 
+import com.kylin.core.initbase.InitValues;
 
 /**
  * 系统常量配置
  */
-public class ConstValues {
+public class ConstValues extends InitValues {
 
 
     //
@@ -15,12 +16,12 @@ public class ConstValues {
 
 
     // HOME
-    public static final String HTTPID = "http://192.168.31.128:8080/";
-    public static final String SERVICE = "HOME";
+    // public static final String HTTPID = "http://192.168.31.128:8080/";
+    // public static final String SERVICE = "HOME";
 
     // Mac
-    // public static final String HTTPID = "http://192.168.0.180:8080/";
-    // public static final String SERVICE = "MAC";
+    public static final String HTTPID = "http://192.168.0.180:8080/";
+    public static final String SERVICE = "MAC";
 
     public static final String VIDEOPATH = "landking/video/";
     public static final String TXTNAME = "_LIST.TXT";//

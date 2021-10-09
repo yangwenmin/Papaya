@@ -32,7 +32,7 @@ import java.util.HashMap;
  */
 public class CrashHandler implements UncaughtExceptionHandler {
     public static final String TAG = "CrashHandler";
-    public static final String APP_CACHE_PATH = //FileUtil.getBugPath();
+    public static final String APP_CACHE_PATH = //FileTool.getBugPath();
             Environment.getExternalStorageDirectory().getPath() + "/YoungHeart/crash/";
 
     // 系统默认的UncaughtException处理类
@@ -218,7 +218,7 @@ public class CrashHandler implements UncaughtExceptionHandler {
 
             // Log.i("业代账号", PrefUtils.getString(context,"loginname",""));
 
-            //String filePath = FileUtil.getSDPath();
+            //String filePath = FileTool.getSDPath();
             // /storage/emulated/0
             //String SDCARD_DIR = Environment.getExternalStorageDirectory().getPath();
 

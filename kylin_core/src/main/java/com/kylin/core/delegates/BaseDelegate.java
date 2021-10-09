@@ -22,7 +22,7 @@ import me.yokeyword.fragmentation.SupportFragmentDelegate;
 import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
 /**
- * Created by 傅令杰
+ * Created by 傅令杰  仿写SwipeBackFragment extends SupportFragment implements ISwipeBackFragment
  */
 public abstract class BaseDelegate extends Fragment implements ISupportFragment {
 

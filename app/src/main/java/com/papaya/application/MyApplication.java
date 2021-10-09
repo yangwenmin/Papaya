@@ -4,7 +4,10 @@ import android.content.Context;
 
 
 import com.joanzapata.iconify.fonts.FontAwesomeModule;
-import com.kylin.core.app.Kylin;
+import com.kylin.core.app.Latte;
+import com.kylin.core.icon.FontEcModule;
+import com.kylin.core.net.interceptors.DebugInterceptor;
+import com.papaya.R;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -46,11 +49,11 @@ public class MyApplication extends MultiDexApplication {
 
 
         // 通过全局配置器,配置参数
-        Kylin.init(this)// 配置ApplicationContext,全局handler
+        Latte.init(this)// 配置ApplicationContext,全局handler
                 .withIcon(new FontAwesomeModule())// 配置字体图标
-                // .withIcon(new FontEcModule())// 配置另一种字体图标
-                // .withApiHost(HttpBaiDu.API_HOST)// 配置ApiHost
-                // .withInterceptor(new DebugInterceptor("test", R.raw.test))// 拦截url请求中包含test的url请求
+                .withIcon(new FontEcModule())// 配置另一种字体图标
+                .withApiHost("https://www.baidu.com/")// 配置ApiHost  必须以/结尾
+                .withInterceptor(new DebugInterceptor("test", R.raw.test))// 拦截url请求中包含test的url请求
                 // .withInterceptor(new AddCookiesInterceptor("test", R.raw.test))// 拦截url请求中包含test的url请求
                 .withJavascriptInterface("latte")
                 // .withWebEvent("back", new BackEvent())// 点击H5页面上的返回按钮  直接返回  业代运营管理堆头协议店申请

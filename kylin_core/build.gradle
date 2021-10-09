@@ -55,7 +55,7 @@ dependencies {
 
     // Fragmentation  https://github.com/YoKeyword/Fragmentation
     api 'me.yokeyword:fragmentationx:1.0.2'
-    api 'me.yokeyword:fragmentationx-swipeback:1.0.2'
+    api 'me.yokeyword:fragmentationx-swipeback:1.0.2'// 滑动返回
     api 'me.yokeyword:eventbus-activity-scope:1.1.0'
     api 'org.greenrobot:eventbus:3.2.0'
 

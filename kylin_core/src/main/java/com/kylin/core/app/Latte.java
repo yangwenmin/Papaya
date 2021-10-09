@@ -11,12 +11,13 @@ import android.os.Handler;
  * Created by yangwenmin on 2017/10/14.
  */
 
-public final class Kylin {
+public final class Latte {
 
     // 返回配置器对象,并配置全局上下文,全局handler
     public  static  Configurator init(Context context){
         Configurator.getInstance().getLatteConfigs()
-                .put(ConfigKeys.APPLICATION_CONTEXT,context.getApplicationContext());
+                .put(ConfigKeys.APPLICATION_CONTEXT,
+                        context.getApplicationContext());
         return Configurator.getInstance();
     }
 
@@ -39,5 +40,4 @@ public final class Kylin {
     public static Context getApplicationContext(){
         return getConfiguration(ConfigKeys.APPLICATION_CONTEXT);
     }
-
 }
