@@ -16,12 +16,12 @@ public class ConstValues extends InitValues {
 
 
     // HOME
-    // public static final String HTTPID = "http://192.168.31.128:8080/";
-    // public static final String SERVICE = "HOME";
+    public static final String HTTPID = "http://192.168.31.128:8080/";
+    public static final String SERVICE = "HOME";
 
     // Mac
-    public static final String HTTPID = "http://192.168.0.180:8080/";
-    public static final String SERVICE = "MAC";
+    // public static final String HTTPID = "http://192.168.0.180:8080/";
+    // public static final String SERVICE = "MAC";
 
     public static final String VIDEOPATH = "landking/video/";
     public static final String TXTNAME = "_LIST.TXT";//
@@ -31,6 +31,7 @@ public class ConstValues extends InitValues {
     public static String[] homeImageList =
             {
 
+                    "https://pic.netbian.com/uploads/allimg/211005/230549-16334463490451.jpg",// 貂蝉
                     "https://pic.netbian.com/uploads/allimg/210920/173747-16321306677ca6.jpg",// 安琪拉
                     "https://pic.netbian.com/uploads/allimg/210908/213245-1631107965aeeb.jpg",// 干将
                     // "https://pic.netbian.com/uploads/allimg/210901/233134-1630510294aba0.jpg",// 赵云
