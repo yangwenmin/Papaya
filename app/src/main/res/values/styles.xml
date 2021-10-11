@@ -23,4 +23,9 @@
         <item name="windowNoTitle">true</item>
     </style>
 
+    <!--下载文件进度条样式-->
+    <style name="MyProgressBarH" parent="@android:style/Widget.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/prog_download</item>
+    </style>
+
 </resources>

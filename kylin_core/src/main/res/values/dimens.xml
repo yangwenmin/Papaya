@@ -1,0 +1,131 @@
+<resources>
+
+    <!-- App字体列表 -->
+    <dimen name="font_size0">26dp</dimen>
+    <dimen name="font_size1">24dp</dimen>
+    <dimen name="font_size2">20dp</dimen>
+    <dimen name="font_size3">18dp</dimen>
+    <dimen name="font_size4">16dp</dimen>
+    <dimen name="font_size5">14dp</dimen>
+    <dimen name="font_size6">12dp</dimen>
+    <dimen name="font_size7">10dp</dimen>
+    <dimen name="font_size8">8dp</dimen>
+    <dimen name="font_size9">6dp</dimen>
+    <dimen name="font_size16">12dp</dimen>
+    <dimen name="font_size22">22dp</dimen>
+    <dimen name="font_size24">24dp</dimen>
+    <dimen name="font_size26">26dp</dimen>
+    <dimen name="font_size29">29dp</dimen>
+    <dimen name="font_size30">30dp</dimen>
+    <dimen name="font_size34">34dp</dimen>
+    <dimen name="font_size40">40dp</dimen>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="home_weather_textsize">18sp</dimen>
+    <dimen name="show_product_textsize">16sp</dimen>
+    <dimen name="home_content_textsize">18sp</dimen>
+    <dimen name="home_content_textsize1">16sp</dimen>
+
+    <!-- 拍照大小 -->
+    <dimen name="thumbnail_imageview_size">41.0dip</dimen>
+    <dimen name="bottom_bar_height">75.0dip</dimen>
+    <dimen name="top_menu_bar_height">45.0dip</dimen>
+    <dimen name="shutter_bottom_size">62.0dip</dimen>
+    <dimen name="album_header_bar_height">50.0dip</dimen>
+    <dimen name="title_view_left_back_padding_left">12.0dip</dimen>
+    <dimen name="title_view_left_back_padding_right">12.0dip</dimen>
+    <dimen name="album_header_btn_width">48.0dip</dimen>
+    <dimen name="album_rooter_bar_height">48.0dip</dimen>
+    <dimen name="album_rooter_bar_text_size">16.0sp</dimen>
+    <dimen name="videodetails_textsize_time">13.0dip</dimen>
+    <dimen name="video_bottom_bar_height">40.0dip</dimen>
+    
+    <dimen name="banner_button_h">35dp</dimen>
+
+    <!--业代底部导航栏高度-->
+    <dimen name="bottombar_dbtplus_height">52dp</dimen>
+
+    <!--定义 宽高-->
+    <dimen name="width_height_size01">6dp</dimen>
+    <dimen name="width_height_size02">10dp</dimen>
+    <dimen name="width_height_size03">16dp</dimen>
+    <dimen name="width_height_size04">20dp</dimen>
+    <dimen name="width_height_size22">22dp</dimen>
+    <dimen name="width_height_size24">24dp</dimen>
+    <dimen name="width_height_size05">26dp</dimen>
+    <dimen name="width_height_size06">30dp</dimen>
+    <dimen name="width_height_size07">36dp</dimen>
+    <dimen name="width_height_size08">40dp</dimen>
+    <dimen name="width_height_size09">46dp</dimen>
+    <dimen name="width_height_size10">50dp</dimen>
+    <dimen name="slv_item_bg_btn_width_img">60dp</dimen>
+
+    <!--alertview-->
+    <!--标题文字大小-->
+    <dimen name="textSize_alert_title">22sp</dimen>
+    <dimen name="textSize_actionsheet_title">14sp</dimen>
+    <!--标题文字高度-->
+    <dimen name="height_alert_title">60dp</dimen>
+    <dimen name="height_actionsheet_title">40dp</dimen>
+    <!--消息文字大小-->
+    <dimen name="textSize_alert_msg">15sp</dimen>
+    <dimen name="textSize_actionsheet_msg">14sp</dimen>
+    <!--消息距离底部间距-->
+    <dimen name="marginBottom_alert_msg">25dp</dimen>
+    <dimen name="marginBottom_actionsheet_msg">14dp</dimen>
+    <!--窗口模式左右两边到屏幕的间距-->
+    <dimen name="margin_alert_left_right">40dp</dimen>
+    <dimen name="margin_actionsheet_left_right">10dp</dimen>
+    <!--线条粗细-->
+    <dimen name="size_divier">1dp</dimen>
+    <!--按钮的高度-->
+    <dimen name="height_alert_button">48dp</dimen>
+    <!--按钮文字大小-->
+    <dimen name="textSize_alert_button">18sp</dimen>
+    <!--圆角-->
+    <dimen name="radius_alertview">15px</dimen>
+    <!--alertview-->
+
+
+    <!--语音-->
+    <dimen name="left_margin">12dp</dimen>
+    <dimen name="right_margin">12dp</dimen>
+
+    <!--按钮字号-->
+    <dimen name="button_fontsize">16dp</dimen>
+
+
+    <!-- ****↓ 容联 ↓**************************************************************************-->
+    <dimen name="NormalListHeight">67.0dip</dimen>
+    <dimen name="SmallPadding">12dip</dimen>
+    <dimen name="NormalAvatarSize">48.0dip</dimen>
+    <dimen name="HintTextSize">14.0dip</dimen>
+    <dimen name="SmallTextSize">14.0dip</dimen>
+    <dimen name="OneDPPadding">1.0dip</dimen>
+    <dimen name="NormalTextSize">16.sp</dimen>
+    <!--****↑ 容联 ↑**************************************************************************-->
+
+
+
+    <!--微信分享-->
+    <dimen name="app_normal_margin">10dp</dimen>
+    <dimen name="app_plus_margin">12dp</dimen>
+    <dimen name="app_tiny_margin">4dp</dimen>
+    <dimen name="font_larger">16dp</dimen>
+    <dimen name="font_normal">14dp</dimen>
+    <dimen name="font_small">10dp</dimen>
+    <dimen name="bottom_dialog_top_icon">38dp</dimen>
+    <dimen name="bottom_dialog_left_icon">32dp</dimen>
+
+
+    <!--督导 会议记录 时间选择 2019年06月19日13:56:07-->
+    <dimen name="picker_view_height">160dp</dimen>
+    <dimen name="date_unit_text_size">18sp</dimen>
+
+    <dimen name="title_text_size">18sp</dimen>
+
+    <dimen name="grid_expected_size">120dp</dimen>
+
+</resources>

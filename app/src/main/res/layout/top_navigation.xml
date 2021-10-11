@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/ll_title"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@color/white"
+              android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/top_ll_title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal">
+        <!-- 取消 -->
+        <RelativeLayout
+            android:id="@+id/top_navigation_rl_back"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/top_navigation_bt_back"
+                android:layout_width="12dp"
+                android:layout_height="18dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="18dp"
+                android:lines="1"/>
+
+        </RelativeLayout>
+
+        <!-- 标题 -->
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/top_navigation_tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:lines="1"
+                android:maxLength="15"
+                android:text=""
+                android:textColor="@color/color_555555"
+                android:textSize="18dp"
+                />
+
+            <TextView
+                android:id="@+id/top_navigation_tv_check"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/color_1DB974"
+                android:textSize="16dp"
+                android:visibility="invisible"
+                />
+
+        </RelativeLayout>
+
+        <!-- 确定 -->
+
+        <RelativeLayout
+            android:id="@+id/top_navigation_rl_confirm"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:visibility="invisible">
+
+            <!-- 删除Button按钮,因为这个按钮会有点击事件  使用TextView没有点击事件 -->
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/top_navigation_bt_confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="14dp"
+                android:lines="1"
+                android:text=""
+                android:textColor="@color/color_1DB974"
+                android:textSize="18dp"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

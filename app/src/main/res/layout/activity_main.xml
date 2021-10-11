@@ -1,13 +1,225 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    android:orientation="vertical"
-    tools:context=".test.TestActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/color_shanhai"
+              android:orientation="vertical"
+              tools:context=".MainActivity">
 
+    <LinearLayout
+        android:id="@+id/top_ll_title"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/white"
+        android:orientation="horizontal">
+        <!-- 头像 -->
+        <RelativeLayout
+            android:id="@+id/main_rl_back"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3">
+
+            <!--业代头像-->
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/main_img_headphoto"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="12dp"
+                android:src="@drawable/ic_launcher_diaochan"
+                app:civ_border_color="@color/color_CD7F32"
+                app:civ_border_width="1dp"/>
+
+        </RelativeLayout>
+
+        <!-- 标题 -->
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/main_tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:lines="1"
+                android:maxLength="15"
+                android:text=""
+                android:textColor="@color/color_555555"
+                android:textSize="18dp"
+                />
+
+        </RelativeLayout>
+
+        <!-- 确定 -->
+        <RelativeLayout
+            android:id="@+id/main_rl_confirm"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:visibility="invisible">
+
+            <!-- 删除Button按钮,因为这个按钮会有点击事件  使用TextView没有点击事件 -->
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/main_bt_confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="14dp"
+                android:lines="1"
+                android:text=""
+                android:textColor="@color/color_1DB974"
+                android:textSize="18dp"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/listview_line"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <!--视频-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="162dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/main_img_video"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <TextView
+                    android:id="@+id/main_tv_video"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="6dp"
+                    android:background="@drawable/shape_solid_bantouming"
+                    android:paddingLeft="4dp"
+                    android:paddingTop="2dp"
+                    android:paddingRight="4dp"
+                    android:paddingBottom="2dp"
+                    android:text="视频教学"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_size5"/>
+            </RelativeLayout>
+
+
+            <!--小说-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="162dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp">
+
+                <ImageView
+                    android:id="@+id/main_img_book"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <TextView
+                    android:id="@+id/main_tv_book"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="6dp"
+                    android:background="@drawable/shape_solid_bantouming"
+                    android:paddingLeft="4dp"
+                    android:paddingTop="2dp"
+                    android:paddingRight="4dp"
+                    android:paddingBottom="2dp"
+                    android:text="文章攻略"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_size5"/>
+            </RelativeLayout>
+
+            <!--图片-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="162dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp">
+
+                <ImageView
+                    android:id="@+id/main_img_pic"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <TextView
+                    android:id="@+id/main_tv_pic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="6dp"
+                    android:background="@drawable/shape_solid_bantouming"
+                    android:paddingLeft="4dp"
+                    android:paddingTop="2dp"
+                    android:paddingRight="4dp"
+                    android:paddingBottom="2dp"
+                    android:text="原画壁纸"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_size5"/>
+            </RelativeLayout>
+
+            <!--游戏-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="162dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp">
+
+                <ImageView
+                    android:id="@+id/main_img_game"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <TextView
+                    android:id="@+id/main_tv_game"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="6dp"
+                    android:background="@drawable/shape_solid_bantouming"
+                    android:paddingLeft="4dp"
+                    android:paddingTop="2dp"
+                    android:paddingRight="4dp"
+                    android:paddingBottom="2dp"
+                    android:text="游戏下载"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/font_size5"/>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="20dp"/>
+        </LinearLayout>
+    </ScrollView>
 
 
 </LinearLayout>

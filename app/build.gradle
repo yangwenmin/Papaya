@@ -58,8 +58,7 @@ configurations.all {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    api project(':kylin_ec')
-    api project(':kylin_compiler')
+    api project(':kylin_core')
 
 }
 
