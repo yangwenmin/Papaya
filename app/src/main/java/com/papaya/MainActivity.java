@@ -1,11 +1,19 @@
 package com.papaya;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -22,6 +30,7 @@ import com.papaya.pic.SingleImageDetailActivity;
 import com.papaya.func_game.MsgWebActivity;
 import com.papaya.utils.ViewUtil;
 
+import java.io.InputStream;
 import java.lang.ref.SoftReference;
 
 import androidx.appcompat.widget.AppCompatImageView;
@@ -174,9 +183,44 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
 
+    private Dialog dialog;
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.main_rl_back:// 头像
+                if (ViewUtil.isDoubleClick(v.getId(), 2500))
+                    return;
+
+                dialog = new Dialog(MainActivity.this, R.style.edit_AlertDialog_style);
+                dialog.setContentView(R.layout.dialog_bigimage);
+                ImageView imageView = (ImageView) dialog.findViewById(R.id.my_image);
+
+                //选择true的话点击其他地方可以使dialog消失，为false的话不会消失
+                dialog.setCanceledOnTouchOutside(true);
+
+                Window w = dialog.getWindow();
+                WindowManager.LayoutParams lp = w.getAttributes();
+                lp.x = 0;
+                lp.y = 40;
+                dialog.onWindowAttributesChanged(lp);
+
+                Glide.with(MainActivity.this)
+                        .load(ConstValues.HEADPHOTO)
+                        .apply(BANNER_OPTIONS)
+                        .into(imageView);
+
+                //大图的点击事件（点击让他消失）
+                imageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+
+                dialog.show();
+
+                break;
             /*case R.id.main_tv_video:// 视频
                 if (ViewUtil.isDoubleClick(v.getId(), 2500))
                     return;
@@ -230,6 +274,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 break;
         }
     }
+
 
     @Override
     public void onBackPressedSupport() {
