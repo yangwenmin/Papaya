@@ -32,6 +32,7 @@ import com.papaya.utils.ViewUtil;
 
 import java.io.InputStream;
 import java.lang.ref.SoftReference;
+import java.util.Random;
 
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
@@ -63,6 +64,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private DownloadService service;
     private MyHandler handler;
 
+
+    private String headPhoto;
 
     /**
      * 接收子线程消息的 Handler
@@ -153,9 +156,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
         titleTv.setText("王者小知识");
 
+        Random rand = new Random();
+
         // 头像
+        int ab = rand.nextInt(ConstValues.videoUrlList.length);
+        headPhoto = ConstValues.videoUrlList[ab];
         Glide.with(MainActivity.this)
-                .load(ConstValues.HEADPHOTO)
+                .load(headPhoto)
                 .placeholder(R.drawable.ic_launcher_diaochan)// 占位图
                 .centerCrop()// 按比例放大/缩小,铺满整个ImageView控件
                 .into(headphotoImg);
@@ -206,7 +213,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 dialog.onWindowAttributesChanged(lp);
 
                 Glide.with(MainActivity.this)
-                        .load(ConstValues.HEADPHOTO)
+                        .load(headPhoto)
                         .apply(BANNER_OPTIONS)
                         .into(imageView);
 
