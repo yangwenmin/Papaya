@@ -1,17 +1,12 @@
 package com.papaya;
 
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -20,26 +15,32 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 import com.kylin.core.utils.flyn.Eyes;
 import com.papaya.application.ConstValues;
 import com.papaya.base.BaseActivity;
+import com.papaya.func_video.VideoFenleiActivity;
 import com.papaya.pic.SingleImageDetailActivity;
 import com.papaya.func_game.MsgWebActivity;
+import com.papaya.test.gsydemo.GsyDemoActivity;
 import com.papaya.utils.ViewUtil;
 
-import java.io.InputStream;
 import java.lang.ref.SoftReference;
 import java.util.Random;
 
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
+import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator;
+import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     private static final RequestOptions BANNER_OPTIONS = new RequestOptions()
+            .diskCacheStrategy(DiskCacheStrategy.ALL)// 缓存SOURC和RESULT
+            .dontAnimate()// 移除所有的动画
             // .fitCenter()// 该api可能 铺不满整个ImageView控件
             // .centerCrop()// 按比例放大/缩小,铺满整个ImageView控件
             .placeholder(R.drawable.shape_solid_gray_5)// 占位图
@@ -61,7 +62,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private TextView tv_game;
 
 
-    private DownloadService service;
+    private MainService service;
     private MyHandler handler;
 
 
@@ -152,7 +153,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     private void initData() {
 
         handler = new MyHandler(MainActivity.this);
-        service = new DownloadService(MainActivity.this, handler);
+        service = new MainService(MainActivity.this, handler);
 
         titleTv.setText("王者小知识");
 
@@ -160,7 +161,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
         // 头像
         int ab = rand.nextInt(ConstValues.videoUrlList.length);
-        headPhoto = ConstValues.videoUrlList[ab];
+        // headPhoto = ConstValues.videoUrlList[ab];
+        headPhoto = ConstValues.HEADPHOTO;
+
         Glide.with(MainActivity.this)
                 .load(headPhoto)
                 .placeholder(R.drawable.ic_launcher_diaochan)// 占位图
@@ -196,7 +199,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.main_rl_back:// 头像
-                if (ViewUtil.isDoubleClick(v.getId(), 2500))
+                if (ViewUtil.isDoubleClick(v.getId(), 800))
                     return;
 
                 dialog = new Dialog(MainActivity.this, R.style.edit_AlertDialog_style);
@@ -228,15 +231,25 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 dialog.show();
 
                 break;
-            /*case R.id.main_tv_video:// 视频
+            case R.id.main_tv_video:// 视频
                 if (ViewUtil.isDoubleClick(v.getId(), 2500))
                     return;
 
-                Intent intent = new Intent(MainActivity.this, VideoCategoryActivity.class);
+                Intent intent = new Intent(MainActivity.this, VideoFenleiActivity.class);
                 intent.putExtra("title", tv_video.getText().toString());      // 保存本地文件名称 _LIST.TXT
                 startActivity(intent);
 
-                break;*/
+                break;
+            case R.id.main_tv_book:// book
+                if (ViewUtil.isDoubleClick(v.getId(), 2500))
+                    return;
+
+                Intent picI = new Intent(MainActivity.this, MsgWebActivity.class);
+                picI.putExtra("weburl", "https://wx1.sinaimg.cn/mw2000/00824qFdly1gvchxtvdxmj60apcmi7wh02.jpg");// 卧底
+                // picI.putExtra("weburl", "https://s3.bmp.ovh/imgs/2021/10/ed38005df165e272.jpg");// 卧底
+                startActivity(picI);
+
+                break;
 
 
             // -------------------------------------------------------------------------------------
@@ -245,7 +258,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     return;
 
                 Intent videoI = new Intent(MainActivity.this, SingleImageDetailActivity.class);
-                videoI.putExtra("imgurl", ConstValues.WANGZHEYINGDI);
+                videoI.putExtra("imgurl", ConstValues.WANGZHEYINGDI);// 王者营地
                 startActivity(videoI);
 
                 break;
@@ -254,7 +267,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                 if (ViewUtil.isDoubleClick(v.getId(), 2500))
                     return;
 
-                Intent bookI = new Intent(MainActivity.this, SingleImageDetailActivity.class);
+                Intent bookI = new Intent(MainActivity.this, SingleImageDetailActivity.class);//
                 bookI.putExtra("imgurl", ConstValues.WANGZHEYINGDI);
                 startActivity(bookI);
 
@@ -263,10 +276,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             case R.id.main_img_pic:// 原画壁纸
                 if (ViewUtil.isDoubleClick(v.getId(), 2500))
                     return;
-
-                Intent picI = new Intent(MainActivity.this, SingleImageDetailActivity.class);
-                picI.putExtra("imgurl", ConstValues.WANGZHEYINGDI);
-                startActivity(picI);
+                Intent lol = new Intent(MainActivity.this, GsyDemoActivity.class);// GSY测试
+                lol.putExtra("weburl", "https://pvp.qq.com/m/");
+                startActivity(lol);
 
                 break;
 
@@ -275,13 +287,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     return;
 
                 Intent bibizhiintent = new Intent(MainActivity.this, MsgWebActivity.class);
-                bibizhiintent.putExtra("weburl", "https://pvp.qq.com/m/");
+                bibizhiintent.putExtra("weburl", "https://wx2.sinaimg.cn/mw2000/00824qFdly1gvcaaboqj1j60ku90ze8102.jpg");// lol开服
                 startActivity(bibizhiintent);
 
                 break;
         }
     }
-
 
     @Override
     public void onBackPressedSupport() {
@@ -298,7 +309,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     }
 
     @Override
-    protected void onPause() {
-        super.onPause();
+    public FragmentAnimator onCreateFragmentAnimator() {
+        // 设置横向(和安卓4.x动画相同)
+        return new DefaultHorizontalAnimator();
     }
+
 }

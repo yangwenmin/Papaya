@@ -2,6 +2,9 @@ package com.kylin.core.initbase;
 
 import android.Manifest;
 
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.RequestOptions;
+
 import java.io.Serializable;
 
 /**
@@ -119,6 +122,8 @@ public class InitValues implements Serializable {
     // 权限相关 ↑--------------------------------------------------------------------------
 
     // fileProvider
-    public static final String PROVIDER = "com.coreplayer.provider";
+    public static final String PROVIDER = "com.papaya";
+
+
 
 }

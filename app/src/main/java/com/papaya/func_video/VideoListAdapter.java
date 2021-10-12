@@ -1,12 +1,21 @@
-package com.papaya.test.gsydemo.simple.adapter;
+package com.papaya.func_video;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.papaya.R;
+import com.papaya.application.ConstValues;
+import com.papaya.func_video.domain.VideoStc;
+import com.papaya.func_video.player.PlayerActivity;
 import com.papaya.test.gsydemo.model.VideoModel;
 import com.papaya.test.gsydemo.video.SampleCoverVideo;
 import com.shuyu.gsyvideoplayer.utils.OrientationUtils;
@@ -15,11 +24,20 @@ import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SimpleListVideoModeAdapter extends BaseAdapter {
+public class VideoListAdapter extends BaseAdapter {
+
+    private static final RequestOptions BANNER_OPTIONS = new RequestOptions()
+            .diskCacheStrategy(DiskCacheStrategy.ALL)// 缓存SOURC和RESULT
+            .dontAnimate()// 移除所有的动画
+            // .fitCenter()// 该api可能 铺不满整个ImageView控件
+            .centerCrop()// 按比例放大/缩小,铺满整个ImageView控件
+            // .placeholder(R.drawable.shape_solid_gray_5)// 占位图
+            // .transform(new CenterCrop(), new RoundedCorners(18))
+            ;
 
     public static final String TAG = "SimpleListVideoModeAdapter";
 
-    private List<VideoModel> list = new ArrayList<>();
+    private List<VideoStc> list;
     private LayoutInflater inflater;
     private Context context;
 
@@ -31,14 +49,11 @@ public class SimpleListVideoModeAdapter extends BaseAdapter {
 
     protected boolean isFull;
 
-    public SimpleListVideoModeAdapter(Context context) {
+    public VideoListAdapter(Context context, ArrayList<VideoStc> videoStcs) {
         super();
         this.context = context;
+        this.list = videoStcs;
         inflater = LayoutInflater.from(context);
-        for (int i = 0; i < 40; i++) {
-            list.add(new VideoModel());
-        }
-
     }
 
     @Override
@@ -68,19 +83,17 @@ public class SimpleListVideoModeAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        final String urlH = "http://9890.vod.myqcloud.com/9890_4e292f9a3dd011e6b4078980237cc3d3.f20.mp4";
-        final String urlV = "http://7xjmzj.com1.z0.glb.clouddn.com/20171026175005_JObCxCE2.mp4";
-        final String url = (position % 2 == 0) ? urlH : urlV;
+        VideoStc videoStc = list.get(position);
 
-        if (position % 2 == 0) {
-            // holder.gsyVideoPlayer.loadCoverImage(url, R.mipmap.bg_splash_open);
-        } else {
-            // holder.gsyVideoPlayer.loadCoverImage(url, R.mipmap.bg_splash_open);
-        }
+        // final String url = videoStc.getVideourl();
 
-        holder.gsyVideoPlayer.setUpLazy(url, true, null, null, "这是title");
+        // holder.gsyVideoPlayer.setUpLazy(videoStc.getVideourl(), true, null, null, videoStc.getVideoname());
+        holder.gsyVideoPlayer.setUp(videoStc.getVideourl(), true,  videoStc.getVideoname());
         //增加title
-        holder.gsyVideoPlayer.getTitleTextView().setVisibility(View.GONE);
+        holder.gsyVideoPlayer.getTitleTextView().setVisibility(View.VISIBLE);
+        holder.gsyVideoPlayer.getTitleTextView().setText(videoStc.getVideoname());
+        holder.gsyVideoPlayer.getTitleTextView().setTextSize(14);
+
         //设置返回键
         holder.gsyVideoPlayer.getBackButton().setVisibility(View.GONE);
         //设置全屏按键功能
@@ -90,6 +103,22 @@ public class SimpleListVideoModeAdapter extends BaseAdapter {
                 holder.gsyVideoPlayer.startWindowFullscreen(context, false, true);
             }
         });
+
+
+        //增加封面
+        ImageView imageView = new ImageView(context);
+        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+        Glide.with(convertView.getContext())
+                .load(videoStc.getImageurl())
+                .apply(BANNER_OPTIONS)
+                .into(imageView);
+
+        // imageView.setImageResource(R.mipmap.bg_splash_open);
+        holder.gsyVideoPlayer.setThumbImageView(imageView);
+
+
+
         //防止错位设置
         holder.gsyVideoPlayer.setPlayTag(TAG);
         holder.gsyVideoPlayer.setLockLand(true);

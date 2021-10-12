@@ -16,23 +16,37 @@ public class ConstValues extends InitValues {
 
 
 
-
-    // 头像
-    public static final String HEADPHOTO = "https://z3.ax1x.com/2021/10/11/5Z3W0s.png";
-    // 王者营地
-    public static final String WANGZHEYINGDI = "https://z3.ax1x.com/2021/10/11/5Ziga9.jpg";
-
     // HOME
-    // public static final String HTTPID = "http://192.168.31.128:8080/";
-    // public static final String SERVICE = "HOME";
+    public static final String HTTPID = "http://192.168.31.128:8080/";
 
     // Mac
-    public static final String HTTPID = "http://192.168.0.180:8080/";
-    public static final String SERVICE = "MAC";
+    // public static final String HTTPID = "http://192.168.0.180:8080/";
+
+
+
+
+
+
+
+
+
+
+    // 头像
+    // public static final String HEADPHOTO = "https://z3.ax1x.com/2021/10/11/5Z3W0s.png";
+    // public static final String HEADPHOTO = "https://s3.bmp.ovh/imgs/2021/10/7a59e231d5b9bddc.jpg";
+    public static final String HEADPHOTO = "https://wx2.sinaimg.cn/mw2000/00824qFdly1gvcaaatncej60u00w8e8102.jpg";
+    // 王者营地
+    // public static final String WANGZHEYINGDI = "https://z3.ax1x.com/2021/10/11/5Ziga9.jpg";
+    public static final String WANGZHEYINGDI = "https://wx2.sinaimg.cn/mw2000/00824qFdly1gvcaac2ba7j60wi1lrjvv02.jpg";
+
 
     public static final String VIDEOPATH = "landking/video/";
     public static final String TXTNAME = "_LIST.TXT";//
     public static final String LOCALPATH = "AiMee/Android/data/localpath";// 下载文件的存放位置
+
+
+    //
+    public static final String DOWNALLFILE = "downallfile";// 下载所有文件
 
 
     public static String[] homeImageList =

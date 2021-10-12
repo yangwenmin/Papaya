@@ -1,6 +1,8 @@
 package com.papaya.pic;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -10,10 +12,15 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.papaya.R;
 import com.papaya.base.BaseActivity;
 
 import java.lang.ref.SoftReference;
+
+import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator;
+import me.yokeyword.fragmentation.anim.FragmentAnimator;
 
 
 /**
@@ -97,6 +104,7 @@ public class SingleImageDetailActivity extends BaseActivity implements View.OnCl
                 .thumbnail(Glide.with(SingleImageDetailActivity.this).load(R.drawable.gif_loading))// 缩略图
                 .centerCrop()// 按比例放大/缩小,铺满整个ImageView控件
                 .into(img);
+
     }
 
     @Override
@@ -114,4 +122,7 @@ public class SingleImageDetailActivity extends BaseActivity implements View.OnCl
     public void onBackPressedSupport() {
         super.onBackPressedSupport();
     }
+
+
+
 }

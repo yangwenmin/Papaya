@@ -25,9 +25,9 @@ import java.io.InputStream;
 /**
  *
  */
-public class DownloadService {
+public class MainService {
 
-    private final String TAG = "DownloadService";
+    private final String TAG = "MainService";
 
     private Context context;
     private Handler handler;
@@ -35,11 +35,11 @@ public class DownloadService {
     /**
      *
      */
-    public DownloadService() {
+    public MainService() {
 
     }
 
-    public DownloadService(Context context, Handler handler) {
+    public MainService(Context context, Handler handler) {
         this.context = context;
         this.handler = handler;
     }
@@ -47,36 +47,25 @@ public class DownloadService {
 
     // ----↓ 下载PDF ↓---------------------------------------------------------------------------------------------
 
-    /**
-     * 下载txt
-     *
-     * @param downloadurl 下载链接 : http://smp.tsingtao.com.cn/static/ddtracepic/cxyschool/knowledge/逸品纯生产品介绍20210420033745.pdf
-     * @param textName    本地文件名称 : 123.txt
-     * @param whatback    handle回调接收
-     */
-    public void downloadText(String downloadurl, String textName, final int whatback) {
-        // 默认显示进度框
-        downloadText(downloadurl, textName, true, whatback);
-    }
 
     /**
      * 下载txt
      *
-     * @param downloadurl  下载链接 : http://smp.tsingtao.com.cn/static/ddtracepic/cxyschool/knowledge/逸品纯生产品介绍20210420033745.pdf
+     * @param downloadUrl  下载链接 : http://smp.tsingtao.com.cn/static/ddtracepic/cxyschool/knowledge/逸品纯生产品介绍20210420033745.pdf
      * @param textName     本地文件名称 : 123.txt
-     * @param isshowdialog 是否显示进度条 true显示 false不显示
-     * @param whatback     handle回调接收
+     * @param isShowDialog 是否显示进度条 false不显示下载进度,true显示下载进度框
+     * @param requestCode  用于Activity界面handle的对应回调接收 比如what1,what2
      */
-    public void downloadText(String downloadurl, String textName, final boolean isshowdialog, final int whatback) {
+    public void downloadText(String downloadUrl, String textName, final boolean isShowDialog, final int requestCode) {
 
-        if (isshowdialog) {
+        if (isShowDialog) {
             // 展示进度条
             showDownloadDialog();
         }
 
 
         RestClient.builder()
-                .url(downloadurl)// http://192.168.31.128:8080/landking/video/LIST.TXT
+                .url(downloadUrl)// http://192.168.31.128:8080/landking/video/LIST.TXT
                 // .params("data", jsonZip)
                 .loader(context)// 滚动条
                 .success(new ISuccess() {
@@ -90,7 +79,7 @@ public class DownloadService {
                         bundle.putString("status", ConstValues.SUCCESS);
                         if (handler != null) {
                             Message msg = new Message();
-                            msg.what = whatback;
+                            msg.what = requestCode;
                             msg.setData(bundle);
                             handler.sendMessage(msg);
                         }
@@ -105,7 +94,7 @@ public class DownloadService {
                         updateMsg.obj = fileLength;
                         updateMsg.arg1 = downLoadedLength;
 
-                        if (isshowdialog) {
+                        if (isShowDialog) {
                             // 进度条进度
                             showDownloading(updateMsg);
                         }
@@ -124,7 +113,7 @@ public class DownloadService {
                         bundle.putString("status", ConstValues.ERROR);
                         if (handler != null) {
                             Message msg2 = new Message();
-                            msg2.what = whatback;
+                            msg2.what = requestCode;
                             msg2.setData(bundle);
                             handler.sendMessage(msg2);
                         }
@@ -141,7 +130,7 @@ public class DownloadService {
                         bundle.putString("status", ConstValues.EXCEPTION);
                         if (handler != null) {
                             Message msg = new Message();
-                            msg.what = whatback;
+                            msg.what = requestCode;
                             msg.setData(bundle);
                             handler.sendMessage(msg);
                         }

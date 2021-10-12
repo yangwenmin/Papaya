@@ -1,10 +1,16 @@
-package com.papaya.test.gsydemo;
+package com.papaya.func_video.player;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.papaya.MainActivity;
 import com.papaya.R;
+import com.papaya.application.ConstValues;
 import com.shuyu.gsyvideoplayer.GSYVideoManager;
 import com.shuyu.gsyvideoplayer.utils.OrientationUtils;
 import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
@@ -18,10 +24,17 @@ public class PlayerActivity extends AppCompatActivity {
 
     OrientationUtils orientationUtils;
 
+    private String videoname;
+    private String videourl;
+    private String imageurl;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // 全屏
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_gsydemo_player);
 
         init();
@@ -32,12 +45,23 @@ public class PlayerActivity extends AppCompatActivity {
 
         videoPlayer = (StandardGSYVideoPlayer) findViewById(R.id.player_player);
 
-        String source1 = "http://9890.vod.myqcloud.com/9890_4e292f9a3dd011e6b4078980237cc3d3.f20.mp4";
-        videoPlayer.setUp(source1, true, "测试视频");
+
+        // 获取上一页传递过来的数据
+        Intent i = getIntent();
+        videoname = i.getStringExtra("videoname");
+        videourl = i.getStringExtra("videourl");
+        imageurl = i.getStringExtra("imageurl");
+
+        videoPlayer.setUp(videourl, true, videoname);
 
         //增加封面
         ImageView imageView = new ImageView(this);
         imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+        Glide.with(PlayerActivity.this)
+                .load(imageurl)
+                .into(imageView);
+
         // imageView.setImageResource(R.mipmap.bg_splash_open);
         videoPlayer.setThumbImageView(imageView);
         //增加title
@@ -111,6 +135,8 @@ public class PlayerActivity extends AppCompatActivity {
             videoPlayer.getFullscreenButton().performClick();
             return;
         }*/
+
+
 
         // 需要回归竖屏
         if (GSYVideoManager.backFromWindowFull(this)) {

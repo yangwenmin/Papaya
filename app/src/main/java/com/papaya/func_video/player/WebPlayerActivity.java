@@ -1,4 +1,4 @@
-package com.papaya.func_game;
+package com.papaya.func_video.player;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -18,9 +18,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 
-
-import com.kylin.core.loader.LatteLoader;
-import com.papaya.MainActivity;
+import com.bumptech.glide.Glide;
 import com.papaya.R;
 import com.papaya.base.BaseActivity;
 import com.papaya.websetting.JsBridge;
@@ -32,18 +30,22 @@ import java.lang.ref.SoftReference;
 /**
  * web Activity
  */
-public class MsgWebActivity extends BaseActivity implements View.OnClickListener, JsBridge {
+public class WebPlayerActivity extends BaseActivity implements View.OnClickListener, JsBridge {
 
 
     private ImageView img;
     private WebView web;
+
+    private String videoname;
+    private String videourl;
+    private String imageurl;
+
+
     MyHandler handler;
 
     // 再点一次退出程序时间设置
     private static final long WAIT_TIME = 2000L;
     private long TOUCH_TIME = 0;
-
-    private String weburl;
 
 
     /**
@@ -52,15 +54,15 @@ public class MsgWebActivity extends BaseActivity implements View.OnClickListener
     public static class MyHandler extends Handler {
 
         // 软引用
-        SoftReference<MsgWebActivity> fragmentRef;
+        SoftReference<WebPlayerActivity> fragmentRef;
 
-        public MyHandler(MsgWebActivity fragment) {
-            fragmentRef = new SoftReference<MsgWebActivity>(fragment);
+        public MyHandler(WebPlayerActivity fragment) {
+            fragmentRef = new SoftReference<WebPlayerActivity>(fragment);
         }
 
         @Override
         public void handleMessage(Message msg) {
-            MsgWebActivity fragment = fragmentRef.get();
+            WebPlayerActivity fragment = fragmentRef.get();
             if (fragment == null) {
                 return;
             }
@@ -86,12 +88,9 @@ public class MsgWebActivity extends BaseActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        LatteLoader.showLoading(MsgWebActivity.this);
-
-        // 全屏
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_msgweb);
+        setContentView(R.layout.activity_webplayer_layout);
 
 
         img = (ImageView) findViewById(R.id.plus_img_msgweb);
@@ -111,10 +110,12 @@ public class MsgWebActivity extends BaseActivity implements View.OnClickListener
 
         handler = new MyHandler(this);
 
-
         // 获取上一页传递过来的数据
         Intent i = getIntent();
-        weburl = i.getStringExtra("weburl");
+        videoname = i.getStringExtra("videoname");
+        videourl = i.getStringExtra("videourl");
+        imageurl = i.getStringExtra("imageurl");
+
 
         web.getSettings().setJavaScriptEnabled(true);
         web.getSettings().setSupportZoom(true);
@@ -160,14 +161,16 @@ public class MsgWebActivity extends BaseActivity implements View.OnClickListener
 
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                //设定加载开始的操作
+                // LatteLoader.showLoading(MsgWebActivity.this);
 
-                // 注意onCreate中已经开启过渡界面了
-                if (!(LatteLoader.getLoadresCount() > 0)) {
-                    //设定加载开始的操作
-                    LatteLoader.showLoading(MsgWebActivity.this);
-                }
+                img.setVisibility(View.VISIBLE);
+                // img.setVisibility(View.GONE);
 
-                // img.setVisibility(View.VISIBLE);
+                Glide.with(WebPlayerActivity.this)
+                        .load(imageurl)
+                        .into(img);
+
 
 
             }
@@ -175,9 +178,10 @@ public class MsgWebActivity extends BaseActivity implements View.OnClickListener
             @Override
             public void onPageFinished(WebView view, String url) {
                 //设定加载结束的操作
-                LatteLoader.stopLoading();
+                // LatteLoader.stopLoading();
 
-                // img.setVisibility(View.GONE);
+
+                img.setVisibility(View.GONE);
             }
 
 
@@ -226,11 +230,10 @@ public class MsgWebActivity extends BaseActivity implements View.OnClickListener
         // web.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE);
 
         // web.loadUrl("http://smp.tsingtao.com.cn/ter_promotion/?t=" + DateUtil.getDateTimeStr(9) + "#/");
+        web.loadUrl(videourl);
         // web.loadUrl("http://wxx.dbtplus.com/ter_promotion/?t=" + DateUtil.getDateTimeStr(9) + "#/");
-        // web.loadUrl("https://pic.netbian.com/4kdongman");
-        // web.loadUrl("https://pvp.qq.com/");
-        // web.loadUrl("https://game.gtimg.cn/images/yxzj/web201706/images/comm/code.png");
-        web.loadUrl(weburl);
+        // web.loadUrl("file:///android_asset/ter_promotion/index.html");
+        // web.loadUrl("http://192.168.2.102:8080");
         // web.loadUrl("http://wxx.dbtplus.com/ter_promotion/static/media/times.mp4");
     }
 
@@ -282,7 +285,7 @@ public class MsgWebActivity extends BaseActivity implements View.OnClickListener
     }*/
 
     private void finishSuc() {
-        MsgWebActivity.this.finish();
+        WebPlayerActivity.this.finish();
     }
 
 

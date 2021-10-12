@@ -119,6 +119,12 @@ public final class LatteLoader {
 
 
     // 关闭Loading页面
+    public static int getLoadresCount() {
+        return LOADERS.size();
+    }
+
+
+    // 关闭Loading页面
     public static void stopLoading() {
         for (AppCompatDialog dialog : LOADERS) {
             if (dialog != null) {

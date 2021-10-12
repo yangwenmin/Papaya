@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="@color/color_shanhai"
+              android:orientation="vertical">
+
+    <!---->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="162dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="5dp">
+
+        <ImageView
+            android:id="@+id/item_videodetail_img_fengmian"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <TextView
+            android:id="@+id/item_videodetail_tv_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginRight="6dp"
+            android:background="@drawable/shape_solid_bantouming"
+            android:paddingLeft="4dp"
+            android:paddingTop="2dp"
+            android:paddingRight="4dp"
+            android:paddingBottom="2dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/font_size6"/>
+    </RelativeLayout>
+
+</LinearLayout>
