@@ -8,19 +8,20 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.papaya.MainActivity;
+import com.kylin.core.videoplayer.SpeedGSYVideoPlayer;
 import com.papaya.R;
-import com.papaya.application.ConstValues;
 import com.shuyu.gsyvideoplayer.GSYVideoManager;
+import com.shuyu.gsyvideoplayer.player.PlayerFactory;
 import com.shuyu.gsyvideoplayer.utils.OrientationUtils;
 import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
 
 import androidx.appcompat.app.AppCompatActivity;
+import tv.danmaku.ijk.media.exo2.Exo2PlayerManager;
 
 public class PlayerActivity extends AppCompatActivity {
 
 
-    StandardGSYVideoPlayer videoPlayer;
+    SpeedGSYVideoPlayer videoPlayer;
 
     OrientationUtils orientationUtils;
 
@@ -43,7 +44,7 @@ public class PlayerActivity extends AppCompatActivity {
 
     private void init() {
 
-        videoPlayer = (StandardGSYVideoPlayer) findViewById(R.id.player_player);
+        videoPlayer = (SpeedGSYVideoPlayer) findViewById(R.id.player_player);
 
 
         // 获取上一页传递过来的数据
@@ -51,6 +52,10 @@ public class PlayerActivity extends AppCompatActivity {
         videoname = i.getStringExtra("videoname");
         videourl = i.getStringExtra("videourl");
         imageurl = i.getStringExtra("imageurl");
+
+        // 播放本地部分视频非常慢 https://github.com/CarGuo/GSYVideoPlayer/issues/3358
+        PlayerFactory.setPlayManager(Exo2PlayerManager.class);
+        // PlayerFactory.setPlayManager(new IjkPlayerManager());//ijk模式
 
         videoPlayer.setUp(videourl, true, videoname);
 
@@ -90,6 +95,7 @@ public class PlayerActivity extends AppCompatActivity {
         //是否可以滑动调整
         videoPlayer.setIsTouchWiget(true);
 
+
         //设置返回按键功能
         videoPlayer.getBackButton().setOnClickListener(new View.OnClickListener() {
             @Override
@@ -99,7 +105,7 @@ public class PlayerActivity extends AppCompatActivity {
         });
 
         // 播放速度 默认正常1.0f
-        videoPlayer.setSpeedPlaying(1.3f, true);
+        // videoPlayer.setSpeedPlaying(1.3f, true);
 
         // 循环播放
         videoPlayer.setLooping(true);

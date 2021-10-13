@@ -6,7 +6,7 @@
     android:background="@color/black">
 
 
-    <com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer
+    <com.kylin.core.videoplayer.SpeedGSYVideoPlayer
         android:id="@+id/player_player"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

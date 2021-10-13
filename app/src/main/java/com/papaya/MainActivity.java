@@ -245,7 +245,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
                     return;
 
                 Intent picI = new Intent(MainActivity.this, MsgWebActivity.class);
-                picI.putExtra("weburl", "https://wx1.sinaimg.cn/mw2000/00824qFdly1gvchxtvdxmj60apcmi7wh02.jpg");// 卧底
+                // picI.putExtra("weburl", "https://wx1.sinaimg.cn/mw2000/00824qFdly1gvchxtvdxmj60apcmi7wh02.jpg");// 卧底
+                picI.putExtra("weburl", ConstValues.HTTPID + ConstValues.PICPATH + "10521634017757_pic_hd_min.jpg");// 卧底
                 // picI.putExtra("weburl", "https://s3.bmp.ovh/imgs/2021/10/ed38005df165e272.jpg");// 卧底
                 startActivity(picI);
 

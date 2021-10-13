@@ -12,17 +12,20 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
+import com.kylin.core.videoplayer.SampleCoverVideo;
 import com.papaya.R;
 import com.papaya.application.ConstValues;
 import com.papaya.func_video.domain.VideoStc;
 import com.papaya.func_video.player.PlayerActivity;
 import com.papaya.test.gsydemo.model.VideoModel;
-import com.papaya.test.gsydemo.video.SampleCoverVideo;
+import com.shuyu.gsyvideoplayer.player.PlayerFactory;
 import com.shuyu.gsyvideoplayer.utils.OrientationUtils;
 import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import tv.danmaku.ijk.media.exo2.Exo2PlayerManager;
 
 public class VideoListAdapter extends BaseAdapter {
 
@@ -86,6 +89,8 @@ public class VideoListAdapter extends BaseAdapter {
         VideoStc videoStc = list.get(position);
 
         // final String url = videoStc.getVideourl();
+
+
 
         // holder.gsyVideoPlayer.setUpLazy(videoStc.getVideourl(), true, null, null, videoStc.getVideoname());
         holder.gsyVideoPlayer.setUp(videoStc.getVideourl(), true,  videoStc.getVideoname());

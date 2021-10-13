@@ -6,9 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import com.kylin.core.videoplayer.SampleCoverVideo;
 import com.papaya.R;
 import com.papaya.test.gsydemo.model.VideoModel;
-import com.papaya.test.gsydemo.video.SampleCoverVideo;
 import com.shuyu.gsyvideoplayer.utils.OrientationUtils;
 import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
 

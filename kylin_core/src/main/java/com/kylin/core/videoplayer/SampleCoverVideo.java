@@ -1,4 +1,4 @@
-package com.papaya.test.gsydemo.video;
+package com.kylin.core.videoplayer;
 
 import android.content.Context;
 import android.graphics.Point;
@@ -13,7 +13,7 @@ import android.widget.SeekBar;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
-import com.papaya.R;
+import com.kylin.core.R;
 import com.shuyu.gsyvideoplayer.utils.CommonUtil;
 import com.shuyu.gsyvideoplayer.utils.Debuger;
 import com.shuyu.gsyvideoplayer.utils.GSYVideoType;

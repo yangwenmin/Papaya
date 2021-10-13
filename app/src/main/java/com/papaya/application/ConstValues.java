@@ -11,7 +11,8 @@ public class ConstValues extends InitValues {
 
     //
     public static final String picurl = "https://pic.netbian.com/uploads/allimg/210419/164138-161882169821ce.jpg";
-    public static final String mp4url = "https://wxyass-com.oss-cn-beijing.aliyuncs.com/cache/share_6ecd6129cf4ad95df06e22819d2f6f67.mp4";
+    // public static final String mp4url = "https://wxyass-com.oss-cn-beijing.aliyuncs.com/cache/share_6ecd6129cf4ad95df06e22819d2f6f67.mp4";
+    public static final String mp4url = "https://image.smoba.qq.com/Banner/img/Video/skin/301678.mp4";
     public static final String txturl = "https://wxyass-com.oss-cn-beijing.aliyuncs.com/cache/%E7%95%85%E4%BA%AB%E6%AC%A2%E8%81%9A%E6%97%B6%E5%88%BB.txt";
 
 
@@ -34,13 +35,15 @@ public class ConstValues extends InitValues {
     // 头像
     // public static final String HEADPHOTO = "https://z3.ax1x.com/2021/10/11/5Z3W0s.png";
     // public static final String HEADPHOTO = "https://s3.bmp.ovh/imgs/2021/10/7a59e231d5b9bddc.jpg";
-    public static final String HEADPHOTO = "https://wx2.sinaimg.cn/mw2000/00824qFdly1gvcaaatncej60u00w8e8102.jpg";
+    // public static final String HEADPHOTO = "https://wx2.sinaimg.cn/mw2000/00824qFdly1gvcaaatncej60u00w8e8102.jpg";
+    public static final String HEADPHOTO = "https://s3.bmp.ovh/imgs/2021/10/b302d9cdb537c982.png";
     // 王者营地
     // public static final String WANGZHEYINGDI = "https://z3.ax1x.com/2021/10/11/5Ziga9.jpg";
     public static final String WANGZHEYINGDI = "https://wx2.sinaimg.cn/mw2000/00824qFdly1gvcaac2ba7j60wi1lrjvv02.jpg";
 
 
     public static final String VIDEOPATH = "landking/video/";
+    public static final String PICPATH = "landking/pic/";
     public static final String TXTNAME = "_LIST.TXT";//
     public static final String LOCALPATH = "AiMee/Android/data/localpath";// 下载文件的存放位置
 
